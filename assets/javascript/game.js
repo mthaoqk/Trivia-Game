@@ -94,12 +94,12 @@ window.onload = function(){
 		{
 			question: "The original nike swoosh was bought for?",
 			answers: {
-				a: "35$",
-				b: "125$",
-				c: "580$",
-				d: "1430$"
+				a: "1$",
+				b: "35$",
+				c: "65$",
+				d: "100$"
 			},
-			correctAnswer: "a"
+			correctAnswer: "b"
 		}
 		
 		];
@@ -117,18 +117,18 @@ window.onload = function(){
 
     start: function() {
       if (!clockRunning) {
-        intervalId = setInterval(clock.count, 100);
+        intervalId = setInterval(clock.count, 1000);
 				clockRunning = true;
-				if (time === 0){
-					alert("Time's up!")
-						}
 						
       }
     },
     count: function() {
       clock.time--;
       var converted = clock.timeConverter(clock.time);
-      $("#display").text(converted);
+			$("#display").text(converted);
+			if (time === 0) {
+				alert("Time's up!")
+					}
 		},
 		
         timeConverter: function(t) {
@@ -149,6 +149,3 @@ window.onload = function(){
   
       return minutes + ":" + seconds;
 	}};
-	function timeUp() {
-		$("#results").append("<h2>Time's Up!</h2>");
-		console.log("time is up");}
